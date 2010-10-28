@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- ###MAIN_CONT### begin -->
+<input type="hidden" id="mc_wizard_forms[new]" name="mc_wizard_forms[new]" value="" />
+<input type="hidden" id="mc_wizard_forms[action]" name="mc_wizard_forms[action]" value="" />
+<input type="hidden" id="mc_wizard_forms[id]" name="mc_wizard_forms[id]" value="" />
+<div style="clear:both; float: left;">
+	<div style="float: left; width: 180px;">###NEW_CONT###</div>
+	<div style="float: left;">###FORM_CONT###</div>	
+</div>
+<!-- ###MAIN_CONT### end -->
+
+<!-- ###NEW_FIELD### begin -->
+<div class="bgColor2" style="clear:both; float: left; padding: 10px;">
+	<div style="clear:both; margin-bottom: 10px; font-weight: 800">
+		#LLL#newfield.title#LLL#
+	</div>
+	###FIELDTYPES###	
+</div>
+<!-- ###NEW_FIELD### end -->
+
+<!-- ###NEW_FIELD_ROW### begin -->
+<div style="clear: both; float: left; margin-bottom: 10px; cursor: pointer;" onClick="document.getElementById('mc_wizard_forms[new]').value=('###TYPE###'); document.getElementById('mc_wizard_form').submit();">
+	<div style="float: left; width: 60px; text-align: center;">
+		<img src="images/###TYPE###.png" />
+	</div>
+	<div style="float: left;">###LABEL###</div>
+</div>
+<!-- ###NEW_FIELD_ROW### end -->
+
+<!-- ###FIELD_CONT### begin -->
+<input type="hidden" name="mc_wizard_forms[field][###ID###][type]" value="###TYPE###" />
+<div class="divider" style="clear: both; float: left; margin: 10px; padding: 5px; width: 100%;">
+	<div style="float: left; margin-right: 20px;">
+		<img src="images/up.png" style="cursor: pointer; margin-bottom: 5px;" onClick="actionItem('up', ###ID###)" /><br />
+		<img src="images/down.png" style="cursor: pointer; margin-bottom: 5px;" onClick="actionItem('down', ###ID###)" /><br />
+		<img src="images/delete.png" style="cursor: pointer; margin-bottom: 5px;" onClick="actionItem('del', ###ID###)" />
+	</div>
+	<div style="float: left; margin-right: 20px;">
+		<div style="clear: both; height: 25px;">
+			<div style="float: left; width: 100px;">#LLL#formfield.type#LLL#</div>
+			<div style="float: left;">
+				<div style="float: left; width: 60px;"><img src="images/###TYPE###.png" /></div>
+				<div style="float: left;">###TYPE_NAME###</div>
+			</div>
+		</div>
+		<div style="clear: both; float: left; height: 25px;">
+			<div style="float: left; width: 100px;">#LLL#formfield.title#LLL#</div>
+			<div style="float: left;"><input style="width: 200px;" type="text" name="mc_wizard_forms[field][###ID###][label]" value="###LABEL###"/></div>
+		</div>
+		<div style="clear: both; float: left; height: 25px;">
+			<div style="float: left; width: 100px;">#LLL#formfield.required#LLL#</div>
+			<div style="float: left;"><input ###CHECKED_REQUIRED_TRUE### type="radio" name="mc_wizard_forms[field][###ID###][required]" value="true"/> #LLL#formfield.required.true#LLL# <input ###CHECKED_REQUIRED_FALSE### type="radio" name="mc_wizard_forms[field][###ID###][required]" value="false"/> #LLL#formfield.required.false#LLL# </div>
+		</div>
+	</div>
+	<div style="float: left; margin-right: 20px;">
+		<div style="clear: both; height: 25px;">
+			<div style="float: left; width: 100px;">#LLL#formfield.quickhelp#LLL#</div>
+			<div style="float: left;">
+				<input type="text" style="width: 200px;" name="mc_wizard_forms[field][###ID###][help]" value="###HELP###"/>
+			</div>
+		</div>
+		###FIELDOPTIONS###
+	</div>
+</div>
+<!-- ###FIELD_CONT### end -->
+
+<!-- ###TEXT_FORM### begin -->
+<div style="clear: both; height: 25px;">
+	<div style="float: left; width: 100px;">#LLL#formfield.default#LLL#</div>
+	<div style="float: left;">
+		<input type="text" style="width: 200px;" name="mc_wizard_forms[field][###ID###][default]" value="###DEFAULT###"/>
+	</div>
+</div>
+<!-- ###TEXT_FORM### end -->
+
+<!-- ###SELECT_FORM### begin -->
+<input type="hidden" name="mc_wizard_forms[field][###ID###][action]" value="" />
+<div style="clear: both; height: 25px;">
+	<div style="float: left; width: 100px;">#LLL#formfield.select.items#LLL#</div>
+	<div style="float: left;">
+		<textarea rows="3" cols="30" name="mc_wizard_forms[field][###ID###][options]">###OPTIONS###</textarea>
+	</div>
+</div>
+<!-- ###SELECT_FORM### end -->
+
+<!-- ###TEXTAREA_FORM### begin -->
+<input type="hidden" name="mc_wizard_forms[field][###ID###][action]" value="" />
+<div style="clear: both; height: 25px;">
+	<div style="float: left; width: 100px;">#LLL#formfield.textarea.rows#LLL#</div>
+	<div style="float: left;">
+		<input type="text" style="width: 50px;" name="mc_wizard_forms[field][###ID###][rows]" value="###ROWS###"/>
+	</div>
+</div>
+<!-- ###TEXTAREA_FORM### end -->
+
+<!-- ###CHECKBOX_FORM### begin -->
+<input type="hidden" name="mc_wizard_forms[field][###ID###][action]" value="" />
+<div style="clear: both; height: 25px;">
+	<div style="float: left; width: 100px;">#LLL#formfield.select.items#LLL#</div>
+	<div style="float: left;">
+		<textarea rows="3" cols="30" name="mc_wizard_forms[field][###ID###][options]">###OPTIONS###</textarea>
+	</div>
+</div>
+<!-- ###CHECKBOX_FORM### end -->
+
+<!-- ###RADIO_FORM### begin -->
+<input type="hidden" name="mc_wizard_forms[field][###ID###][action]" value="" />
+<div style="clear: both; height: 25px;">
+	<div style="float: left; width: 100px;">#LLL#formfield.select.items#LLL#</div>
+	<div style="float: left;">
+		<textarea rows="3" cols="30" name="mc_wizard_forms[field][###ID###][options]">###OPTIONS###</textarea>
+	</div>
+</div>
+<!-- ###RADIO_FORM### end -->
+
+<!-- ###EMAIL_FORM### begin -->
+<div style="clear: both; height: 25px;">
+	<div style="float: left; width: 100px;">#LLL#formfield.default#LLL#</div>
+	<div style="float: left;">
+		<input type="text" style="width: 200px;" name="mc_wizard_forms[field][###ID###][default]" value="###DEFAULT###"/>
+	</div>
+</div>
+<!-- ###EMAIL_FORM### end -->
+</body>
+</html>

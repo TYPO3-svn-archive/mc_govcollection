@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="title">Forms wizard</label>
+			
+			<label index="formfield.text.label">Textfield</label>
+			<label index="formfield.select.label">Drop-down</label>
+			<label index="formfield.textarea.label">Textarea</label>
+			<label index="formfield.checkbox.label">Checkboxes</label>
+			<label index="formfield.radio.label">Radiobuttons</label>
+			<label index="formfield.email.label">EMail</label>
+			
+			<label index="formfield.title">Title</label>
+			<label index="formfield.type">Type</label>
+			<label index="formfield.required">Required</label>
+			<label index="formfield.required.true">Yes</label>
+			<label index="formfield.required.false">No</label>
+			<label index="formfield.default">Default</label>
+			<label index="formfield.quickhelp">Quickhelp</label>
+			
+			<label index="formfield.select.items">Options</label>
+			<label index="formfield.textarea.rows">Size (rows)</label>
+			
+			<label index="newfield.title">Add Formfield</label>
+			
+			<label index="renderer.send">Send</label>
+			<label index="renderer.cancel">Cancel</label>
+			<label index="renderer.required">* Required fields</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="title">Formularassistent</label>
+			
+			<label index="formfield.text.label">Eingabe</label>
+			<label index="formfield.select.label">Auswahl</label>
+			<label index="formfield.textarea.label">Textfeld</label>
+			<label index="formfield.checkbox.label">Checkboxen</label>
+			<label index="formfield.radio.label">Auswahlknöpfe</label>
+			<label index="formfield.email.label">E-Mail</label>
+			
+			<label index="formfield.title">Titel</label>
+			<label index="formfield.type">Typ</label>
+			<label index="formfield.required">Erforderlich</label>
+			<label index="formfield.required.true">Ja</label>
+			<label index="formfield.required.false">Nein</label>
+			<label index="formfield.default">Standardwert</label>
+			<label index="formfield.quickhelp">Hilfe</label>
+			
+			<label index="formfield.select.items">Optionen</label>
+			
+			<label index="newfield.title">Neues Formularfeld</label>
+			<label index="formfield.textarea.rows">Grösse (Zeilen)</label>
+			
+			<label index="renderer.send">Senden</label>
+			<label index="renderer.cancel">Abbrechen</label>
+			<label index="renderer.required">* Erforderliche Felder</label>
+		</languageKey>
+	</data>
+</T3locallang>

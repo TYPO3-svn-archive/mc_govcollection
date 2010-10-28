@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_macaevents_pi1&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="overview.label.name">Name</label>
+			<label index="overview.label.email">E-Mail</label>
+			<label index="overview.label.web">Webseite</label>
+			<label index="overview.label.contact">Contact</label>
+			<label index="label.tel">Tel</label>
+			<label index="label.fax">Fax</label>
+			<label index="back">[back...]</label>
+			<label index="more">[more...]</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="overview.label.name">Name</label>
+			<label index="overview.label.email">E-Mail</label>
+			<label index="overview.label.web">Webseite</label>
+			<label index="overview.label.contact">Kontakt</label>
+			<label index="label.tel">Tel</label>
+			<label index="label.fax">Fax</label>
+			<label index="back">[zurück...]</label>
+			<label index="more">[mehr...]</label>
+		</languageKey>
+		<languageKey index="rm" type="array">
+			<label index="overview.label.name">Num</label>
+			<label index="overview.label.email">E-Mail</label>
+			<label index="overview.label.web">Pagina web</label>
+			<label index="overview.label.contact">Contact</label>
+			<label index="label.tel">Tel</label>
+			<label index="label.fax">Fax</label>
+			<label index="back">[anavos...]</label>
+			<label index="more">[dapli...]</label>
+		</languageKey>
+	</data>
+</T3locallang>

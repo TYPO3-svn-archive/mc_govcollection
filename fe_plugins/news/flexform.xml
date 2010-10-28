@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+		<!-- <langChildren>1</langChildren>! -->
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:mc_govcollection/locallang_ff.xml:listview.title
+					</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<crop_length>
+						<TCEforms>
+							<label>LLL:EXT:mc_govcollection/locallang_ff.xml:listview.cropcount
+							</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<default>80</default>
+								<size>10</size>
+							</config>
+						</TCEforms>
+					</crop_length>
+					<item_count>
+						<TCEforms>
+							<label>LLL:EXT:mc_govcollection/locallang_ff.xml:listview.itemcount
+							</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<default>5</default>
+								<size>10</size>
+							</config>
+						</TCEforms>
+					</item_count>
+					<item_per_page>
+						<TCEforms>
+							<label>LLL:EXT:mc_govcollection/locallang_ff.xml:listview.item_per_page
+							</label>
+							<config>
+								<type>input</type>
+								<eval>num</eval>
+								<default>5</default>
+								<size>10</size>
+							</config>
+						</TCEforms>
+					</item_per_page>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

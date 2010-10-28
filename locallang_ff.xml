@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for Flexform belonging to extension 'mc_govcollection'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="listview.title">Listenansicht</label>
+			<label index="listview.cropcount">Anzahl Zeichen für Kurztext (falls kein Untertitel gesetzt)</label>
+			<label index="listview.itemcount">Anzahl angezeigter News</label>
+			<label index="listview.item_per_page">Anzahl News pro Seite</label>
+			
+			<label index="contact.config">Einstellungen</label>
+			<label index="contact.categories">Angezeigte Kategorien</label>
+			
+			<label index="offer.deliveryemail">Zieladresse für Formulardaten</label>
+			
+			<label index="file.rendcategories">Kategorien als Titel anzeigen</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="listview.title">Listenansicht</label>
+			<label index="listview.cropcount">Anzahl Zeichen für Kurztext (falls kein Untertitel gesetzt)</label>
+			<label index="listview.itemcount">Anzahl angezeigter News</label>
+			<label index="listview.item_per_page">Anzahl News pro Seite</label>
+			
+			<label index="contact.config">Einstellungen</label>
+			<label index="contact.categories">Angezeigte Kategorien</label>
+			
+			<label index="offer.deliveryemail">Zieladresse für Formulardaten (EMail)</label>
+		</languageKey>
+	</data>
+</T3locallang>

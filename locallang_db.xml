@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'mc_govcollection'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<!-- DB-Fields News -->
+			<label index="tx_mcgovcollection_news">News</label>
+			<label index="tx_mcgovcollection_news.date">Date</label>
+			<label index="tx_mcgovcollection_news.title">Title</label>
+			<label index="tx_mcgovcollection_news.subtitle">Subtitle</label>
+			<label index="tx_mcgovcollection_news.bodytext">Bodytext</label>
+			<label index="tx_mcgovcollection_news.category">Category</label>
+			
+			<!-- DB-Fields Category (for News) -->
+			<label index="tx_mcgovcollection_cat">Category</label>
+			<label index="tx_mcgovcollection_cat.title">Title</label>
+			
+			<!-- DB-Fields Contact -->
+			<label index="tx_mcgovcollection_contact">Contact</label>
+            <label index="tx_mcgovcollection_contact.name">Name</label>
+            <label index="tx_mcgovcollection_contact.adress">Adress</label>
+            <label index="tx_mcgovcollection_contact.city">Zip, City</label>
+            <label index="tx_mcgovcollection_contact.contactname">Contact Name</label>
+            <label index="tx_mcgovcollection_contact.tel">Telephon</label>
+            <label index="tx_mcgovcollection_contact.fax">Telefax</label>
+            <label index="tx_mcgovcollection_contact.email">E-Mail</label>
+            <label index="tx_mcgovcollection_contact.description">Description</label>
+            <label index="tx_mcgovcollection_contact.web">Website</label>
+            <label index="tx_mcgovcollection_contact.category">Category</label>
+            
+            <!-- DB-Fields Category (for Contact) -->
+            <label index="tx_mcgovcollection_contact_cat">Contact Category</label>
+            <label index="tx_mcgovcollection_contact_cat.name">Name</label>
+            <label index="tx_mcgovcollection_contact_cat.parentcat">Parent-Category</label>
+
+			<!-- DB-Fields Form -->
+			<label index="tx_mcgovcollection_form">Angebot</label>
+			<label index="tx_mcgovcollection_form.type">Type</label>
+			<label index="tx_mcgovcollection_form.type.item.0">Link</label>
+			<label index="tx_mcgovcollection_form.type.item.1">Formular</label>
+			<label index="tx_mcgovcollection_form.title">Title</label>
+			<label index="tx_mcgovcollection_form.formconfig">Form Configuration</label>
+			<label index="tx_mcgovcollection_form.link">Link</label>
+			<label index="tx_mcgovcollection_form.description">Description</label>
+			<label index="tx_mcgovcollection_form.price">Price</label>
+
+			<!-- DB-Fields File -->
+			<label index="tx_mcgovcollection_file">File</label>
+			<label index="tx_mcgovcollection_file.title">Title</label>
+			<label index="tx_mcgovcollection_file.description">Description</label>
+			<label index="tx_mcgovcollection_file.file">File</label>
+			<label index="tx_mcgovcollection_file.category">Category</label>
+
+			<!-- DB-Fields Category (for Files) -->
+            <label index="tx_mcgovcollection_file_cat">File Category</label>
+            <label index="tx_mcgovcollection_file_cat.name">Name</label>
+            <label index="tx_mcgovcollection_file_cat.parentcat">Parent-Category</label>
+
+			<!-- Sheet-Titles -->
+			<label index="tx_mcgovcollection_contact.register.more">More</label>
+			<label index="tx_mcgovcollection_contact.register.description">Description</label>
+			<label index="tx_mcgovcollection_form.register.details">Details</label>
+
+			<!-- Titles of Plugins -->
+			<label index="tt_content.list_type_news">News - GovCol</label>
+			<label index="tt_content.list_type_contact">Contacts - GovCol</label>
+			<label index="tt_content.list_type_form">eGov - GovCol</label>
+			<label index="tt_content.list_type_file">Filedownload - GovCol</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="tx_mcgovcollection_news">Nachrichten</label>
+			<label index="tx_mcgovcollection_news.date">Datum</label>
+			<label index="tx_mcgovcollection_news.subtitle">Untertitel</label>
+			<label index="tx_mcgovcollection_news.bodytext">Nachrichtentext</label>
+			<label index="tx_mcgovcollection_news.category">Kategorie</label>
+			<label index="tx_mcgovcollection_cat">Kategorie</label>
+			<label index="tx_mcgovcollection_cat.title">Titel</label>
+			<label index="tx_mcgovcollection_contact">Kontakt</label>
+            <label index="tx_mcgovcollection_contact.name">Name</label>
+            <label index="tx_mcgovcollection_contact.adress">Adresse</label>
+            <label index="tx_mcgovcollection_contact.city">PLZ, Ort</label>
+            <label index="tx_mcgovcollection_contact.contactname">Kontaktname</label>
+            <label index="tx_mcgovcollection_contact.tel">Telefon</label>
+            <label index="tx_mcgovcollection_contact.fax">Telefax</label>
+            <label index="tx_mcgovcollection_contact.email">E-Mail</label>
+            <label index="tx_mcgovcollection_contact.description">Beschreibung</label>
+            <label index="tx_mcgovcollection_contact.web">Webseite</label>
+            <label index="tx_mcgovcollection_contact.category">Kategorie</label>
+            <label index="tx_mcgovcollection_contact_cat">Kontakt Kategorie</label>
+            <label index="tx_mcgovcollection_contact_cat.name">Name</label>
+            <label index="tx_mcgovcollection_contact_cat.parentcat">Überkategorie</label>
+            
+            <label index="tx_mcgovcollection_contact.register.more">Mehr</label>
+			<label index="tx_mcgovcollection_contact.register.description">Beschreibung</label>
+			
+			<label index="tt_content.list_type_news">News - GovCol</label>
+			<label index="tt_content.list_type_contact">Kontakte - GovCol</label>
+			
+		</languageKey>
+	</data>
+</T3locallang>

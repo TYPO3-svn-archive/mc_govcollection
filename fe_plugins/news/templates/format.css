@@ -1,0 +1,22 @@
+@CHARSET "ISO-8859-1";
+.paging_cont {
+	clear: both;
+	float: left;
+}
+
+.item_count {
+	clear:both;
+}
+
+.paging {
+	clear: both;
+	float: left;
+}
+
+.paging_arr {
+	float: left;
+	width: 16px; 
+	height: 16px; 
+	background-image: url(paging.gif);
+	background-repeat: no-repeat;
+}

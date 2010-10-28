@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_macaevents_form&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="overview.label.title">Offers</label>
+			<label index="overview.label.price">Price</label>
+			<label index="overview.label.link">Link</label>
+			<label index="overview.label.form">Online</label>
+			<label index="single.label.link">Link to offer</label>
+			<label index="single.label.form">Online-Form</label>
+			
+			<label index="imgalt.clicktolink">Click to follow the link</label>
+			<label index="imgalt.clicktoform">Click to open the online-form</label>
+			<label index="imgalt.clicktoinfo">Click to get more information</label>
+			
+			<label index="form.yourchoice">Your choice:</label>
+			<label index="form.yourdata">Your data:</label>
+			
+			<label index="confirm.thanks">&lt;p class="bodytext"&gt;Thank you for the order.&lt;/p&gt;
+&lt;p class="bodytext"&gt;We will produce the requested offer corresponding to your data and if necesary send the resulting documents.&lt;/p&gt;
+&lt;p class="bodytext"&gt;We received the following data:&lt;/p&gt;</label>
+
+			<label index="mail.subject">Incoming order:</label>
+			<label index="mail.data">Received data</label>
+			
+			<label index="back">[back...]</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="overview.label.title">Dienstleistung</label>
+			<label index="overview.label.price">Preis</label>
+			<label index="overview.label.link">Link</label>
+			<label index="overview.label.form">Online</label>
+			<label index="single.label.link">Link zum Angebot</label>
+			<label index="single.label.form">Online-Formular</label>
+			
+			<label index="imgalt.clicktolink">Klicken um dem Link zu folgen</label>
+			<label index="imgalt.clicktoform">Klicken das Online-Formular zu öffnen</label>
+			<label index="imgalt.clicktoinfo">Klicken um weitere Informationen zu erhalten</label>
+			
+			<label index="form.yourchoice">Ihre Auswahl:</label>
+			<label index="form.yourdata">Ihre Angaben:</label>
+			
+			<label index="confirm.thanks">&lt;p class="bodytext"&gt;Vielen Dank für Ihre Bestellung.&lt;/p&gt;
+&lt;p class="bodytext"&gt;Wir werden die gewählte Dienstleistung nach Ihren Angaben ausführen und wenn nötig, die entsprechenden Dokumente nach Ihren Angaben versenden.&lt;/p&gt;
+&lt;p class="bodytext"&gt;Folgende Angaben haben wir erhalten:&lt;/p&gt;</label>
+
+			<label index="mail.subject">Bestellung eingegangen:</label>
+			<label index="mail.data">Eingegangene Daten</label>
+			
+			<label index="back">[zurück...]</label>
+		</languageKey>
+		<languageKey index="rm" type="array">
+			<label index="overview.label.title">Servetsch</label>
+			<label index="overview.label.price">Taxa</label>
+			<label index="overview.label.link">Link</label>
+			<label index="overview.label.form">Online</label>
+			<label index="single.label.link">Link tier il servetsch</label>
+			<label index="single.label.form">Mascra online</label>
+			
+			<label index="imgalt.clicktolink">Cliccar per suandar il link</label>
+			<label index="imgalt.clicktoform">Cliccar per avrir la mascra online</label>
+			<label index="imgalt.clicktoinfo">Cliccar per survegnir dapli infurmaziuns</label>
+			
+			<label index="form.yourchoice">Vossa schelta:</label>
+			<label index="form.yourdata">Vossas indicaziuns:</label>
+			
+			<label index="confirm.thanks">&lt;p class="bodytext"&gt;Grazia fitg per Vossa empustaziun.&lt;/p&gt;
+&lt;p class="bodytext"&gt;Nus vegnin a realisar il servetsch tenor Vossas indicaziuns e trametter sche necessari ils documents.&lt;/p&gt;
+&lt;p class="bodytext"&gt;Suandontas indicaziuns vein nus retschet:&lt;/p&gt;</label>
+
+			<label index="mail.subject">Empustaziun entrada:</label>
+			<label index="mail.data">Entradas indicaziuns</label>
+			
+			<label index="back">[anavos...]</label>
+		</languageKey>
+	</data>
+</T3locallang>

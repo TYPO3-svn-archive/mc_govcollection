@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+		<!-- <langChildren>1</langChildren>! -->
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:mc_govcollection/locallang_ff.xml:contact.config</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<categoriesAsTitle>
+						<TCEforms>
+							<label>LLL:EXT:mc_govcollection/locallang_ff.xml:file.rendcategories</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</categoriesAsTitle>
+					<categorySelection>
+						<TCEforms>
+							<label>LLL:EXT:mc_govcollection/locallang_ff.xml:contact.categories</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+								</items>
+								<foreign_table>tx_mcgovcollection_file_cat</foreign_table>
+								<foreign_table_where>AND tx_mcgovcollection_file_cat.deleted = 0 AND tx_mcgovcollection_file_cat.hidden = 0 AND tx_mcgovcollection_file_cat.sys_language_uid IN (-1,0)</foreign_table_where>
+								<maxitems>1000</maxitems>
+								<size>5</size>
+								<multiple>1</multiple>
+								<selectedListStyle>width:300px</selectedListStyle>
+								<itemListStyle>width:300px</itemListStyle>
+							</config>
+						</TCEforms>
+					</categorySelection>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

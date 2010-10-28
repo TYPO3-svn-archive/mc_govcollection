@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+		<!-- <langChildren>1</langChildren>! -->
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:mc_govcollection/locallang_ff.xml:contact.config</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<deliverEmail>
+						<TCEforms>
+							<label>LLL:EXT:mc_govcollection/locallang_ff.xml:offer.deliveryemail</label>
+							<config>
+								<type>input</type>
+								<eval>email</eval>
+								<default></default>
+								<size>30</size>
+							</config>
+						</TCEforms>
+					</deliverEmail>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

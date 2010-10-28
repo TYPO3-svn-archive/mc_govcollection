@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="format.css" media="all" />
+</head>
+<body>
+
+<!-- ###OVERVIEW_CONT### begin -->
+<div style="clear:both; float: left;">
+	<div style="float:left; width: 310px;"><h1>#LLL#overview.label.title#LLL#</h1></div>
+	<div style="float:left; width: 40px;">&nbsp;</div>
+	<div style="float:left; width: 80px;"><h1>#LLL#overview.label.price#LLL#</h1></div>
+	<div style="float:left; width: 60px;"><h1>#LLL#overview.label.link#LLL#</h1></div>
+	<div style="float:left; width: 60px;"><h1>#LLL#overview.label.form#LLL#</h1></div>
+</div>
+<!-- ###OVERVIEW_CONT### end -->
+
+<!-- ###OVERVIEW_ROW### begin -->
+<div style="clear:both; float: left; border-top: 1px solid black; padding: 5px 0px 5px 0px;">
+	<div style="float:left; width: 310px;">###TITLE###</div>
+	<div style="float:left; width: 40px;">###INFO###</div>
+	<div style="float:left; width: 70px; text-align: right;">Fr. ###PRICE###</div>
+	<div style="float:left; width: 10px;">&nbsp;</div>
+	<div style="float:left; width: 60px;">###LINK###</div>
+	<div style="float:left; width: 60px;">###FORM###</div>
+</div>
+<!-- ###OVERVIEW_ROW### end -->
+
+<!-- ###LINK_IMG### -->
+<img src="link.jpg" title="#LLL#imgalt.clicktolink#LLL#" alt="#LLL#imgalt.clicktolink#LLL#" height="16px" style="margin-left: 10px" />
+<!-- ###LINK_IMG### -->
+
+<!-- ###FORM_IMG### -->
+<img src="form.jpg" title="#LLL#imgalt.clicktoform#LLL#" alt="#LLL#imgalt.clicktoform#LLL#" height="16px" style="margin-left: 10px" />
+<!-- ###FORM_IMG### -->
+
+<!-- ###INFO_IMG### -->
+<img src="info.png" title="#LLL#imgalt.clicktoinfo#LLL#" alt="#LLL#imgalt.clicktoinfo#LLL#" height="16px" style="margin-left: 10px" />
+<!-- ###INFO_IMG### -->
+
+<!-- ###SINGLE_VIEW### begin -->
+<div>
+	<div><h1>###TITLE###</h1></div>
+	<div style="clear: both; margin-bottom: 10px;">###DESCRIPTION###</div>
+	<div style="clear: both; float: left; margin-bottom: 10px;">
+		<div style="float: left; width: 150px;">#LLL#overview.label.price#LLL#</div>
+		<div style="float: left;">###PRICE###</div>
+	</div>
+	<div style="clear: both; float: left; margin-bottom: 10px;">
+		<div style="float: left; width: 150px; font-weight: 800">#LLL#single.label.link#LLL#</div>
+		<div style="float: left;">###LINK###</div>
+	</div>
+	<div style="clear: both; float: left; margin-bottom: 10px;">
+		<div style="float: left; width: 150px; font-weight: 800">#LLL#single.label.form#LLL#</div>
+		<div style="float: left;">###FORM###</div>
+	</div>
+	<div style="clear: both; margin-bottom: 10px;">###BACK###</div>
+</div>
+<!-- ###SINGLE_VIEW### end -->
+
+<!-- ###FORM_VIEW### begin -->
+<div style="clear:both:">
+	<div style="margin-bottom: 5px;">#LLL#form.yourchoice#LLL#</div>
+	<div style="clear:both; float: left; margin-bottom: 20px; padding-left: 20px; ">
+		<div style="float: left; width: 400px;">###TITLE###</div>
+		<div style="float: left;">CHF ###PRICE###</div>
+	</div>
+	<div style="margin-bottom: 5px; clear: both;">#LLL#form.yourdata#LLL#</div>
+	<div style="clear:both; padding-left: 20px;">
+		###FORM###
+	</div>
+	<div style="clear: both; padding-top: 10px;">###BACK###</div>
+</div>
+<!-- ###FORM_VIEW### end -->
+
+<!-- ###CONFIRM_VIEW### begin -->
+<div style="clear:both:">
+	<div style="clear:both; float: left; margin-bottom: 20px;">
+		<div style="float: left; width: 400px; font-weight: 800">###TITLE###</div>
+		<div style="float: left;">CHF ###PRICE###</div>
+	</div>
+	<div style="clear:both;">
+		<div>#LLL#confirm.thanks#LLL#</div>
+		<div style="padding: 20px;">
+			###DATA###
+		</div>
+	</div>
+	<div style="clear: both; padding-top: 10px;">###BACK###</div>
+</div>
+<!-- ###CONFIRM_VIEW### end -->
+
+<!-- ###CONFIRM_DATA_ROW### begin -->
+<div style="clear: both; float: left; margin-bottom: 5px;">
+	<div style="float: left; width: 150px;">###LABEL###</div>
+	<div style="float: left;">###DATA###</div>
+</div>
+<!-- ###CONFIRM_DATA_ROW### end -->
+
+<!-- ###MAIL_BODY### begin -->
+<html>
+	<head>
+		<title>###TITLE</title>
+		<style type="text/css">
+			body {margin: 0px; padding: 0px; background-color: #FFFFFF;font-family: Verdana, Arial, Helvetica, "Sans Serif"; font-size: 12px;}
+			img, a img {border: 0px; position: relative; top: 1px;}
+			table, tr, td {margin: 0px; padding: 5px;}
+		</style>
+	</head>
+	<body>
+		<table>
+			<tr><td style="width: 200px;" valign="top">#LLL#overview.label.title#LLL#</td><td>###TITLE###</td></tr>
+			<tr><td valign="top">#LLL#overview.label.price#LLL#</td><td>###PRICE###</td></tr>
+			<tr>
+				<td valign="top">#LLL#mail.data#LLL#</td>
+				<td style="padding: 0px;"><table>###DATA###</table></td>
+			</tr>
+		</table>
+	</body>
+</html>
+<!-- ###MAIL_BODY### end -->
+
+<!-- ###MAIL_DATA_ROW### begin -->
+<tr><td style="width: 200px;" valign="top">###LABEL###</td><td>###VALUE###</td></tr>
+<!-- ###MAIL_DATA_ROW### begin -->
+
+</body>
+</html>

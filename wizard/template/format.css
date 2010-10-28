@@ -1,0 +1,45 @@
+@CHARSET "ISO-8859-1";
+.mcrenderforms_field_cont {
+	margin-bottom: 10px;
+}
+
+	.mcrenderforms_label {
+		width: 200px;
+	}
+	
+	.mcrenderforms_field_div {
+		width: 270px;
+	}
+	
+	.mcrenderforms_field_div input[type=text] {
+		width: 250px;
+	}
+	
+	.mcrenderforms_field_div input[type=checkbox],input[type=radio] {
+		width: 20px;
+		border: 0px;
+	}
+	
+	.mcrenderforms_field_div select {
+		width: 258px;
+	}
+	
+	.mcrenderforms_field_div textarea {
+		width: 250px;
+	}
+	
+	.mcrenderforms_field_div button {
+		width: 100px;
+		background-color:#DDDDDD;
+		border:1px solid #00094D;
+		color:#464646;
+		margin-left: 10px;
+	}
+	
+	input.mcrenderforms_field_error, textarea.mcrenderforms_field_error {
+		background-color: #FFEEEE;
+	}
+	
+	label.mcrenderforms_field_error {
+		color: red;
+	}

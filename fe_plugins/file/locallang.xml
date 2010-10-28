@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;tx_macaevents_file&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="imgalt.clicktoinfo">Click to get more information</label>
+			<label index="imgalt.clicktodownload">Click to download the file</label>
+			
+			<label index="back">[back...]</label>
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="imgalt.clicktoinfo">Klicken um weitere Informationen zu erhalten</label>
+			<label index="imgalt.clicktodownload">Klicken um das Dokument herunterzuladen</label>
+			
+			<label index="back">[zurück...]</label>
+		</languageKey>
+		<languageKey index="rm" type="array">
+			<label index="imgalt.clicktoinfo">Cliccar per survegnir dapli infurmaziuns</label>
+			<label index="imgalt.clicktodownload">Cliccar per chargiar giu il document</label>
+			
+			<label index="back">[anavos...]</label>
+		</languageKey>
+	</data>
+</T3locallang>

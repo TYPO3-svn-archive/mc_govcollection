@@ -29,6 +29,7 @@
 
 require_once(PATH_tslib.'class.tslib_pibase.php');
 require_once(t3lib_extMgm::extPath('mc_govcollection').'fe_plugins/form/class.tx_mcgovcollection_form_renderer.php');
+require_once(t3lib_extMgm::extPath('mc_govcollection').'fe_plugins/form/class.tx_mcgovcollection_form_repository.php');
 require_once(t3lib_extMgm::extPath('mc_govcollection').'wizard/class.tx_mcgovcollection_forms.php');
 
 /**
@@ -44,6 +45,7 @@ class tx_mcgovcollection_form extends tslib_pibase {
 	var $extKey        = 'mc_govcollection';	// The extension key.
 	var $pi_checkCHash = true;
 	private $renderer = null;
+	private $repository = null;
 
 	/**
 	 * The main method of the PlugIn
@@ -57,17 +59,27 @@ class tx_mcgovcollection_form extends tslib_pibase {
 		$this->pi_setPiVarDefaults();
 		$this->pi_loadLL();
 		$this->renderer = new tx_mcgovcollection_form_renderer(t3lib_extMgm::extPath($this->extKey).'fe_plugins/form/templates/template.html', $conf, $this->cObj);
+		$this->repository = new tx_mcgovcollection_form_repository($this->cObj);
 		$this->pi_initPIflexForm();
 		
 		$content = '';
-		
-		if(isset($this->piVars['offerId']) && strlen($this->piVars['offerId'] > 0)) {
+		if(isset($this->piVars['action'])) {
 			switch($this->piVars['action']) {
+				case 'area':
+					$area = $this->repository->getArea($this->piVars['uid']);
+					
+					$content .= $this->renderer->renderArea($area, 0);
+					break;
+				case 'group':
+					$area = $this->repository->getAreaByGroup($this->piVars['uid']);
+					
+					$content .= $this->renderer->renderArea($area, $this->piVars['uid']);
+					break;
 				case 'form':
-					$item = $this->getOffer($this->piVars['offerId']);
+					$service = $this->repository->getOffer($this->piVars['offerId']);
 					
 					// Formular-Verarbeitung
-					$formsrend = new tx_mcgovcollection_forms('tx_mcgovcollection_form', $item['uid'], 'formconfig', t3lib_div::getIndpEnv('REQUEST_URI'));
+					$formsrend = new tx_mcgovcollection_forms('tx_mcgovcollection_form', $service->getUid(), 'formconfig', t3lib_div::getIndpEnv('REQUEST_URI'));
 					
 					if($formsrend->dataAvailable()) {
 						// Save Data in DB
@@ -79,60 +91,24 @@ class tx_mcgovcollection_form extends tslib_pibase {
 						$this->sendMail($item, $formsrend->getDataArray());
 
 						// Ausgabe der Übersichtsseite
-						$content .= $this->renderer->renderConfirm($item, $formsrend->getDataArray());
+						$content .= $this->renderer->renderConfirm($service, $formsrend->getDataArray());
 					} else {
-						$content .= $this->renderer->renderForm($item, $formsrend->getForm());
+						$content .= $this->renderer->renderForm($service, $formsrend->getForm());
 					}
 					break;
-				default:
-					case 'info':
-					$item = $this->getOffer($this->piVars['offerId']);
+				case 'info':
+					$item = $this->repository->getOffer($this->piVars['offerId']);
 					$content .= $this->renderer->renderSingle($item);
 					break;
+				default:
+					break;	
 			}
 		} else {
-			$items = $this->getAllOffers();
-			$content .= $this->renderer->renderOverview($items);
+			$items = $this->repository->getAllAreas();
+			$content .= $this->renderer->renderStart($items);
 		}
 		
 		return $this->pi_wrapInBaseClass($content);
-	}
-	
-	private function getOffer($uid) {
-		// Get a Single-Record with the localized description
-		$record = $this->pi_getRecord('tx_mcgovcollection_form', $uid);
-		
-		$where = '';
-		$where .= 'l10n_parent = '.$uid.' ';
-		$where .= 'AND sys_language_uid = '.$GLOBALS['TSFE']->sys_language_uid.' ';
-		$where .= 'AND (hidden = 0 OR hidden IS NULL) ';
-		$where .= 'AND (deleted = 0 OR deleted IS NULL) ';
-		
-		$langols = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'tx_mcgovcollection_form', $where);
-		if($GLOBALS['TYPO3_DB']->sql_num_rows($langols)==1 && $langol = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($langols)) {
-			$record['title'] = $langol['title'];
-			$record['formconfig'] = $langol['formconfig'];
-			$record['description'] = $langol['description'];
-			$record['link'] = $langol['link'];
-		}
-		
-		return $record;
-	}
-	
-	private function getAllOffers() {
-		$where = '';
-		$where .= 'pid IN ('.$this->pi_getPidList($this->cObj->data['pages'], $this->cObj->data['recursive']).') ';
-		$where .= 'AND (hidden = 0 OR hidden IS NULL) ';
-		$where .= 'AND (deleted = 0 OR deleted IS NULL) ';
-		$where .= 'AND sys_language_uid IN (-1, 0) ';
-		
-		$rows = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', 'tx_mcgovcollection_form', $where, '', 'title');
-		$result = array();
-		while($row = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($rows)) {
-			$result[] = $this->getOffer($row['uid']);
-		}
-		
-		return $result;
 	}
 	
 	private function sendMail($item, $dataArray) {

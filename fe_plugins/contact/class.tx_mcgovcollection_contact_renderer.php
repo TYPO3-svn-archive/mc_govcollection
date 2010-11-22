@@ -49,13 +49,16 @@ class tx_mcgovcollection_contact_renderer extends tslib_pibase {
 		$this->pi_initPIflexForm();
 		
 		// substitute all src-attributes with the right path
-		$this->template = preg_replace("/src=\"/", "src=\"".t3lib_extMgm::siteRelPath($this->extKey)."pi1/templates/", $this->template);
+		$this->template = preg_replace("/src=\"/", "src=\"".t3lib_extMgm::siteRelPath($this->extKey)."fe_plugins/contact/templates/", $this->template);
 		
 		// Labels durch Werte aus der Locallang.xml-Datei ersetzen
 		$this->template = preg_replace_callback("/#LLL#(.*?)#LLL#/", array($this, 'translation_callback'), $this->template);
 		
 		$this->subparts['overview']['cont'] = $this->cObj->getSubpart($this->template, '###OVERVIEW_CONT###');
 		$this->subparts['overview']['row'] = $this->cObj->getSubpart($this->template, '###OVERVIEW_ROW###');
+		
+		$this->subparts['img']['info'] = $this->cObj->getSubpart($this->template, '###INFO_IMG###');
+		$this->subparts['img']['mail'] = $this->cObj->getSubpart($this->template, '###MAIL_IMG###');
 
 		$this->subparts['single'] = $this->cObj->getSubpart($this->template, '###SINGLE_VIEW###');
 	}
@@ -70,8 +73,11 @@ class tx_mcgovcollection_contact_renderer extends tslib_pibase {
 		$content .= $this->subparts['overview']['cont'];
 		
 		foreach($rows as $row) {
-			$ma['###NAME###'] = $this->pi_linkTP($row['name'], array($this->prefixId.'[contactId]' => $row['uid']), 1);
-			$ma['###EMAIL###'] = strlen($row['email'])>0?$this->cObj->getTypoLink($row['email'], $row['email']):'&nbsp;';
+			$ma['###NAME###'] = $row['name'];
+			
+			$ma['###INFO###'] = $this->pi_linkTP($this->subparts['img']['info'], array($this->prefixId.'[contactId]' => $row['uid']), 1);
+			$ma['###EMAIL###'] = strlen($row['email'])>0?$this->cObj->getTypoLink($this->subparts['img']['mail'], $row['email']):'&nbsp;';
+			
 			$ma['###WEB###'] = strlen($row['web'])>0?$this->cObj->getTypoLink($row['web'], $row['web'], '', '_blank'):'&nbsp;';	
 		
 			$content .= $this->cObj->substituteMarkerArray($this->subparts['overview']['row'], $ma);

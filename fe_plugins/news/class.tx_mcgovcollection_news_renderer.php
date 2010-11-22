@@ -96,15 +96,15 @@ class tx_mcgovcollection_news_renderer extends tslib_pibase {
 		$ma['###ARROWS###'] = '';
 		
 		if($start > 1) {
-			$ma['###ARROWS###'] .= $this->pi_linkTP('<div class="paging_arr">&nbsp;</div>', array($this->prefixId.'[paging]' => 0), 1);
-			$ma['###ARROWS###'] .= $this->pi_linkTP('<div class="paging_arr" style="background-position: 0px -16px;">&nbsp;</div>', array($this->prefixId.'[paging]' => ($start-$itemcountperpage-1<0?0:$start-$itemcountperpage-1)), 1);
+			$ma['###ARROWS###'] .= $this->pi_linkTP('<div class="paging_arr" title="'.$this->pi_getLL('paging.tostart').'">&nbsp;</div>', array($this->prefixId.'[paging]' => 0), 1);
+			$ma['###ARROWS###'] .= $this->pi_linkTP('<div class="paging_arr" title="'.$this->pi_getLL('paging.previous').'" style="background-position: 0px -16px;">&nbsp;</div>', array($this->prefixId.'[paging]' => ($start-$itemcountperpage-1<0?0:$start-$itemcountperpage-1)), 1);
 		} else {
 			$ma['###ARROWS###'] .= '<div class="paging_arr" style="background-position: -16px 0px;">&nbsp;</div>';
 			$ma['###ARROWS###'] .= '<div class="paging_arr" style="background-position: -16px -16px;">&nbsp;</div>';
 		}
 		if($end < $total) {
-			$ma['###ARROWS###'] .= $this->pi_linkTP('<div class="paging_arr" style="background-position: 0px -32px;">&nbsp;</div>', array($this->prefixId.'[paging]' => $start + $itemcountperpage-1), 1);
-			$ma['###ARROWS###'] .= $this->pi_linkTP('<div class="paging_arr" style="background-position: 0px -48px;">&nbsp;</div>', array($this->prefixId.'[paging]' => ($total-$itemcountperpage<0?0:$total-$itemcountperpage)), 1);
+			$ma['###ARROWS###'] .= $this->pi_linkTP('<div class="paging_arr" title="'.$this->pi_getLL('paging.next').'" style="background-position: 0px -32px;">&nbsp;</div>', array($this->prefixId.'[paging]' => $start + $itemcountperpage-1), 1);
+			$ma['###ARROWS###'] .= $this->pi_linkTP('<div class="paging_arr" title="'.$this->pi_getLL('paging.toend').'" style="background-position: 0px -48px;">&nbsp;</div>', array($this->prefixId.'[paging]' => ($total-$itemcountperpage<0?0:$total-$itemcountperpage)), 1);
 		} else {
 			$ma['###ARROWS###'] .= '<div class="paging_arr" style="background-position: -16px -32px;">&nbsp;</div>';
 			$ma['###ARROWS###'] .= '<div class="paging_arr" style="background-position: -16px -48px;">&nbsp;</div>';

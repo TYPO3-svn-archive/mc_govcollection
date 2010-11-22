@@ -58,7 +58,9 @@ class tx_mcgovcollection_wizard_forms {
 	var $FORMCFG;				// The array which is constantly submitted by the multidimensional form of this wizard.
 	var $special;				// Indicates if the form is of a dedicated type, like "formtype_mail" (for tt_content element "Form")
 	
-	var $av_field_types = array('text', 'select', 'textarea', 'checkbox', 'radio', 'email');
+	var $av_field_types = array('text', 'select', 'textarea', 'checkbox', 'radio', 'email', 'date');
+	var $av_layout_types = array('grouptitle', 'spacer');
+	
 	var $temp_form = array();
 	
 	/**
@@ -175,7 +177,7 @@ class tx_mcgovcollection_wizard_forms {
 		if($_POST['mc_wizard_forms']['action'] && strlen($_POST['mc_wizard_forms']['action']) > 0) {
 			switch($_POST['mc_wizard_forms']['action']) {
 				case 'up':
-			if(isset($this->temp_form[$_POST['mc_wizard_forms']['id'] - 1])) {
+					if(isset($this->temp_form[$_POST['mc_wizard_forms']['id'] - 1])) {
 						$tempfield = $this->temp_form[$_POST['mc_wizard_forms']['id'] - 1];
 						$this->temp_form[$_POST['mc_wizard_forms']['id'] - 1] = $this->temp_form[$_POST['mc_wizard_forms']['id']];
 						$this->temp_form[$_POST['mc_wizard_forms']['id']] = $tempfield;
@@ -236,6 +238,12 @@ class tx_mcgovcollection_wizard_forms {
 			$nma['###LABEL###'] = $GLOBALS['LANG']->getLL('formfield.'.$type.'.label');
 			
 			$newContMa['###FIELDTYPES###'] .= t3lib_parsehtml::substituteMarkerArray($subparts['newFieldRow'], $nma);
+		}
+		foreach($this->av_layout_types as $type) {
+			$nma['###TYPE###'] = $type;
+			$nma['###LABEL###'] = $GLOBALS['LANG']->getLL('layoutfield.'.$type.'.label');
+			
+			$newContMa['###LAYOUTTYPES###'] .= t3lib_parsehtml::substituteMarkerArray($subparts['newFieldRow'], $nma);
 		}
 		$ma['###NEW_CONT###'] = t3lib_parsehtml::substituteMarkerArray(t3lib_parsehtml::getSubpart($this->template, '###NEW_FIELD###'), $newContMa);
 		$subparts['field_cont'] = t3lib_parsehtml::getSubpart($this->template, '###FIELD_CONT###');

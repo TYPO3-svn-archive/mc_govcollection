@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "mc_govcollection".
 #
-# Auto generated 28-10-2010 20:26
+# Auto generated 29-10-2010 22:23
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next

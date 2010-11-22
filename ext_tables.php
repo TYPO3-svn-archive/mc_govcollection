@@ -104,6 +104,50 @@ $TCA['tx_mcgovcollection_form'] = array (
 	),
 );
 
+$TCA['tx_mcgovcollection_topic_area'] = array (
+	'ctrl' => array (
+		'title'     => 'LLL:EXT:mc_govcollection/locallang_db.xml:tx_mcgovcollection_topic_area',        
+		'label'     => 'title',    
+		'tstamp'    => 'tstamp',
+		'crdate'    => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'type' 	=> 'type',
+		'dividers2tabs'	=> true,
+		'languageField'            => 'sys_language_uid',    
+		'transOrigPointerField'    => 'l10n_parent',    
+		'transOrigDiffSourceField' => 'l10n_diffsource',    
+		'default_sortby' => 'ORDER BY title',    
+		'delete' => 'deleted',    
+		'enablecolumns' => array (        
+			'disabled' => 'hidden',
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'res/tca/tca_topic_area.php',
+		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY).'res/images/icon_tx_mcgovcollection_topic_area.gif',
+	),
+);
+
+$TCA['tx_mcgovcollection_topic_group'] = array (
+	'ctrl' => array (
+		'title'     => 'LLL:EXT:mc_govcollection/locallang_db.xml:tx_mcgovcollection_topic_group',        
+		'label'     => 'title',    
+		'tstamp'    => 'tstamp',
+		'crdate'    => 'crdate',
+		'cruser_id' => 'cruser_id',
+		'type' 	=> 'type',
+		'dividers2tabs'	=> true,
+		'languageField'            => 'sys_language_uid',    
+		'transOrigPointerField'    => 'l10n_parent',    
+		'transOrigDiffSourceField' => 'l10n_diffsource',    
+		'default_sortby' => 'ORDER BY title',    
+		'delete' => 'deleted',    
+		'enablecolumns' => array (        
+			'disabled' => 'hidden',
+		),
+		'dynamicConfigFile' => t3lib_extMgm::extPath($_EXTKEY).'res/tca/tca_topic_group.php',
+		'iconfile'          => t3lib_extMgm::extRelPath($_EXTKEY).'res/images/icon_tx_mcgovcollection_topic_group.gif',
+	),
+);
+
 $TCA['tx_mcgovcollection_file'] = array (
 	'ctrl' => array (
 		'title'     => 'LLL:EXT:mc_govcollection/locallang_db.xml:tx_mcgovcollection_file',        

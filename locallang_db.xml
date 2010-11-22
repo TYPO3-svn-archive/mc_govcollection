@@ -46,6 +46,22 @@
 			<label index="tx_mcgovcollection_form.link">Link</label>
 			<label index="tx_mcgovcollection_form.description">Description</label>
 			<label index="tx_mcgovcollection_form.price">Price</label>
+			<label index="tx_mcgovcollection_form.group">Servicegruppe</label>
+			
+			<!-- DB-Fields topic_area -->
+			<label index="tx_mcgovcollection_topic_area">Themenbereich</label>
+			<label index="tx_mcgovcollection_topic_area.title">Title</label>
+			<label index="tx_mcgovcollection_topic_area.description">Description</label>
+			
+			<!-- DB-Fields topic_group -->
+			<label index="tx_mcgovcollection_topic_group">Servicegruppe</label>
+			<label index="tx_mcgovcollection_topic_group.title">Title</label>
+			<label index="tx_mcgovcollection_topic_group.description">Description</label>
+			<label index="tx_mcgovcollection_topic_group.area">Area</label>
+			<label index="tx_mcgovcollection_topic_group.level">State-Level</label>
+			<label index="tx_mcgovcollection_topic_group.level.1">Federal level</label>
+			<label index="tx_mcgovcollection_topic_group.level.2">Canton</label>
+			<label index="tx_mcgovcollection_topic_group.level.3">Commune</label>
 
 			<!-- DB-Fields File -->
 			<label index="tx_mcgovcollection_file">File</label>

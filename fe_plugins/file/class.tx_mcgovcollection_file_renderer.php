@@ -105,8 +105,12 @@ class tx_mcgovcollection_file_renderer extends tslib_pibase {
 		} else {
 			$ma['###SRC###'] = 'src="typo3/gfx/fileicons/default.gif"';
 		}
-		$ma['###ICONS###'] = $this->pi_linkTP($this->subparts['img']['info'], array($this->prefixId.'[fileId]' => $row['uid']), 1);
-		$ma['###ICONS###'] .= $this->cObj->getTypoLink($this->subparts['img']['down'], 'uploads/mc_govcollection_file/'.$row['file'], '', '_blank');
+		if(strlen($row['description'])>0) {
+			$ma['###INFO_ICON###'] = $this->pi_linkTP($this->subparts['img']['info'], array($this->prefixId.'[fileId]' => $row['uid']), 1);
+		} else {
+			$ma['###INFO_ICON###'] = '&nbsp;';
+		}
+		$ma['###DOWNLOAD_ICON###'] .= $this->cObj->getTypoLink($this->subparts['img']['down'], 'uploads/mc_govcollection_file/'.$row['file'], '', '_blank');
 	
 		return $this->cObj->substituteMarkerArray($this->subparts['overview']['row'], $ma);
 	}

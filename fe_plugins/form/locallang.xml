@@ -10,6 +10,8 @@
 			<label index="overview.label.price">Price</label>
 			<label index="overview.label.link">Link</label>
 			<label index="overview.label.form">Online</label>
+			<label index="overview.label.info">Info</label>
+			
 			<label index="single.label.link">Link to offer</label>
 			<label index="single.label.form">Online-Form</label>
 			
@@ -27,13 +29,18 @@
 			<label index="mail.subject">Incoming order:</label>
 			<label index="mail.data">Received data</label>
 			
+			<label index="more">[more...]</label>
+			<label index="less">[less...]</label>
 			<label index="back">[back...]</label>
+			<label index="backtoOverview">[back to overview...]</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="overview.label.title">Dienstleistung</label>
 			<label index="overview.label.price">Preis</label>
 			<label index="overview.label.link">Link</label>
 			<label index="overview.label.form">Online</label>
+			<label index="overview.label.info">Info</label>
+			
 			<label index="single.label.link">Link zum Angebot</label>
 			<label index="single.label.form">Online-Formular</label>
 			
@@ -51,13 +58,18 @@
 			<label index="mail.subject">Bestellung eingegangen:</label>
 			<label index="mail.data">Eingegangene Daten</label>
 			
+			<label index="more">[mehr...]</label>
+			<label index="less">[weniger...]</label>
 			<label index="back">[zurück...]</label>
+			<label index="backtoOverview">[zurück zur Übersicht...]</label>
 		</languageKey>
 		<languageKey index="rm" type="array">
 			<label index="overview.label.title">Servetsch</label>
 			<label index="overview.label.price">Taxa</label>
 			<label index="overview.label.link">Link</label>
 			<label index="overview.label.form">Online</label>
+			<label index="overview.label.info">Info</label>
+			
 			<label index="single.label.link">Link tier il servetsch</label>
 			<label index="single.label.form">Mascra online</label>
 			
@@ -75,7 +87,10 @@
 			<label index="mail.subject">Empustaziun entrada:</label>
 			<label index="mail.data">Entradas indicaziuns</label>
 			
+			<label index="more">[dapli...]</label>
+			<label index="less">[pli pauc...]</label>
 			<label index="back">[anavos...]</label>
+			<label index="backtoOverview">[anavos tier la suvesta...]</label>
 		</languageKey>
 	</data>
 </T3locallang>

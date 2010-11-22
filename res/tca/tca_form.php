@@ -135,7 +135,38 @@ $TCA['tx_mcgovcollection_form'] = array (
 			'config' => array (
 				'type' => 'input',    
 				'size' => '10',    
-				'eval' => 'required,double2',
+				'eval' => 'double2',
+			)
+		),
+		'topic_group' => array (        
+			'exclude' => 0,
+			'l10n_mode' => 'exclude', 
+			'l10n_display' => 'defaultAsReadonly',        
+			'label' => 'LLL:EXT:mc_govcollection/locallang_db.xml:tx_mcgovcollection_form.group',        
+			'config' => array (
+				'type' => 'select',    
+				'foreign_table' => 'tx_mcgovcollection_topic_group',    
+				'foreign_table_where' => 'AND sys_language_uid IN (0,-1) ORDER BY tx_mcgovcollection_topic_group.uid',    
+				'size' => 1,    
+				'minitems' => 0,
+				'maxitems' => 1,
+			)
+		),
+		'level' => array (
+			'exclude' => 0,
+			'l10n_mode' => 'exclude', 
+			'l10n_display' => 'defaultAsReadonly',
+			'label' => 'LLL:EXT:mc_govcollection/locallang_db.xml:tx_mcgovcollection_topic_group.level',        
+			'config' => array (
+				'type' => 'select',
+				'items' => array (
+					array('LLL:EXT:mc_govcollection/locallang_db.xml:tx_mcgovcollection_topic_group.level.1', 1),
+					array('LLL:EXT:mc_govcollection/locallang_db.xml:tx_mcgovcollection_topic_group.level.2', 2),
+					array('LLL:EXT:mc_govcollection/locallang_db.xml:tx_mcgovcollection_topic_group.level.3', 3)
+				),
+				'size' => 1,    
+				'minitems' => 0,
+				'maxitems' => 1,
 			)
 		)
 	),
@@ -144,6 +175,8 @@ $TCA['tx_mcgovcollection_form'] = array (
 			hidden, 
 			type,
 			title,
+			topic_group,
+			level,  
 			link, 
 			--div--;LLL:EXT:mc_govcollection/locallang_db.xml:tx_mcgovcollection_form.register.details,
 			description;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_mcgovcollection/rte/],
@@ -153,6 +186,8 @@ $TCA['tx_mcgovcollection_form'] = array (
 			hidden,
 			type,
 			title, 
+			topic_group,
+			level,  
 			formconfig;;;nowrap:wizards[form], 
 			--div--;LLL:EXT:mc_govcollection/locallang_db.xml:tx_mcgovcollection_form.register.details,
 			description;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_mcgovcollection/rte/],
@@ -162,6 +197,8 @@ $TCA['tx_mcgovcollection_form'] = array (
 			hidden,
 			type,
 			title, 
+			topic_group, 
+			level, 
 			link, 
 			--div--;LLL:EXT:mc_govcollection/locallang_db.xml:tx_mcgovcollection_form.register.details,
 			description;;;richtext[]:rte_transform[mode=ts_css|imgpath=uploads/tx_mcgovcollection/rte/],

@@ -10,6 +10,10 @@
 			<label index="formfield.checkbox.label">Checkboxes</label>
 			<label index="formfield.radio.label">Radiobuttons</label>
 			<label index="formfield.email.label">EMail</label>
+			<label index="formfield.date.label">Date</label>
+			
+			<label index="layoutfield.grouptitle.label">Grouptitle</label>
+			<label index="layoutfield.spacer.label">Spacer</label>
 			
 			<label index="formfield.title">Title</label>
 			<label index="formfield.type">Type</label>
@@ -23,6 +27,7 @@
 			<label index="formfield.textarea.rows">Size (rows)</label>
 			
 			<label index="newfield.title">Add Formfield</label>
+			<label index="layoutfield.title">Add Layoutelement</label>
 			
 			<label index="renderer.send">Send</label>
 			<label index="renderer.cancel">Cancel</label>
@@ -37,6 +42,7 @@
 			<label index="formfield.checkbox.label">Checkboxen</label>
 			<label index="formfield.radio.label">Auswahlknöpfe</label>
 			<label index="formfield.email.label">E-Mail</label>
+			<label index="formfield.date.label">Datum</label>
 			
 			<label index="formfield.title">Titel</label>
 			<label index="formfield.type">Typ</label>
@@ -46,10 +52,12 @@
 			<label index="formfield.default">Standardwert</label>
 			<label index="formfield.quickhelp">Hilfe</label>
 			
-			<label index="formfield.select.items">Optionen</label>
 			
 			<label index="newfield.title">Neues Formularfeld</label>
+			<label index="layoutfield.title">Neues Layoutelement</label>
+			
 			<label index="formfield.textarea.rows">Grösse (Zeilen)</label>
+			<label index="formfield.select.items">Optionen</label>
 			
 			<label index="renderer.send">Senden</label>
 			<label index="renderer.cancel">Abbrechen</label>

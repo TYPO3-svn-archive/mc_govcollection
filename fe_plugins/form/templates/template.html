@@ -7,22 +7,43 @@
 </head>
 <body>
 
-<!-- ###OVERVIEW_CONT### begin -->
-<div style="clear:both; float: left;">
-	<div style="float:left; width: 310px;"><h1>#LLL#overview.label.title#LLL#</h1></div>
-	<div style="float:left; width: 40px;">&nbsp;</div>
-	<div style="float:left; width: 80px;"><h1>#LLL#overview.label.price#LLL#</h1></div>
-	<div style="float:left; width: 60px;"><h1>#LLL#overview.label.link#LLL#</h1></div>
-	<div style="float:left; width: 60px;"><h1>#LLL#overview.label.form#LLL#</h1></div>
+<!-- ###START### begin -->
+<div style="clear: both; float: left; border-bottom: 1px solid black; width: 550px;">
+	<div style="clear:both; float: left; padding: 5px 0px 5px 0px;">
+		<div style="float:left; font-weight: 800; width: 250px;">###TITLE###</div>
+	</div>
+	<div style="margin-left: 20px; clear:both; float: left; padding: 5px 0px 5px 0px;">
+		###GROUPS###
+	</div>
 </div>
-<!-- ###OVERVIEW_CONT### end -->
+<!-- ###START### end -->
+
+<!-- ###AREA_OVERVIEW### begin-->
+###GROUPS###
+<div style="clear:both; float: left;">
+	<div style="float:left;">###BACK###</div>
+</div>
+<!-- ###AREA_OVERVIEW### begin-->
+
+<!-- ###GROUP_OVERVIEW### begin -->
+<div style="clear:both; float: left; padding: 5px 0px 5px 0px; cursor: pointer;" onClick="$('#tx_mcgovcollection_group_###GROUPUID###').toggle()">
+	<div style="float:left; width: 550px; background-color: #DDDDDD; padding: 5px 0px 5px 5px">###TITLE###</div>
+</div>
+<div id="tx_mcgovcollection_group_###GROUPUID###" style="clear:both; float: left; display: ###DISPLAY###;">
+	<div style="clear:both; float: left;">
+		<div style="float:left; width: 370px;"><h1>#LLL#overview.label.title#LLL#</h1></div>
+		<div style="float:left; width: 60px;"><h1>#LLL#overview.label.info#LLL#</h1></div>
+		<div style="float:left; width: 60px;"><h1>#LLL#overview.label.link#LLL#</h1></div>
+		<div style="float:left; width: 60px;"><h1>#LLL#overview.label.form#LLL#</h1></div>
+	</div>
+	###SERVICES###
+</div>
+<!-- ###GROUP_OVERVIEW### end -->
 
 <!-- ###OVERVIEW_ROW### begin -->
 <div style="clear:both; float: left; border-top: 1px solid black; padding: 5px 0px 5px 0px;">
-	<div style="float:left; width: 310px;">###TITLE###</div>
-	<div style="float:left; width: 40px;">###INFO###</div>
-	<div style="float:left; width: 70px; text-align: right;">Fr. ###PRICE###</div>
-	<div style="float:left; width: 10px;">&nbsp;</div>
+	<div style="float:left; width: 370px;">###TITLE###</div>
+	<div style="float:left; width: 60px;">###INFO###</div>
 	<div style="float:left; width: 60px;">###LINK###</div>
 	<div style="float:left; width: 60px;">###FORM###</div>
 </div>
@@ -64,8 +85,8 @@
 <div style="clear:both:">
 	<div style="margin-bottom: 5px;">#LLL#form.yourchoice#LLL#</div>
 	<div style="clear:both; float: left; margin-bottom: 20px; padding-left: 20px; ">
-		<div style="float: left; width: 400px;">###TITLE###</div>
-		<div style="float: left;">CHF ###PRICE###</div>
+		<div style="float: left;">###TITLE###</div>
+		<div style="float: left; margin-left: 50px;">CHF ###PRICE###</div>
 	</div>
 	<div style="margin-bottom: 5px; clear: both;">#LLL#form.yourdata#LLL#</div>
 	<div style="clear:both; padding-left: 20px;">

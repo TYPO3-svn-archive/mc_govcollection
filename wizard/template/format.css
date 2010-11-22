@@ -33,7 +33,6 @@
 		background-color:#DDDDDD;
 		border:1px solid #00094D;
 		color:#464646;
-		margin-left: 10px;
 	}
 	
 	input.mcrenderforms_field_error, textarea.mcrenderforms_field_error {
@@ -43,3 +42,7 @@
 	label.mcrenderforms_field_error {
 		color: red;
 	}
+	
+.mcrenderforms_grouptitle {
+	font-weight: 800;
+}

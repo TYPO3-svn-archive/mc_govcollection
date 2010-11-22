@@ -8,18 +8,36 @@
 		<languageKey index="default" type="array">
 			<label index="paging.to">to</label>
 			<label index="paging.from">of total</label>
+			
+			<label index="paging.tostart">First page</label>
+			<label index="paging.previous">Previous page</label>
+			<label index="paging.next">Next page</label>
+			<label index="paging.toend">Last page</label>
+			
 			<label index="back">[back...]</label>
 			<label index="more">[more...]</label>
 		</languageKey>
 		<languageKey index="de" type="array">
 			<label index="paging.to">bis</label>
 			<label index="paging.from">von Total</label>
+			
+			<label index="paging.tostart">Ersten Seite</label>
+			<label index="paging.previous">Vorhergehende Seite</label>
+			<label index="paging.next">Nächste Seite</label>
+			<label index="paging.toend">Letzte Seite</label>
+			
 			<label index="back">[zurück...]</label>
 			<label index="more">[mehr...]</label>
 		</languageKey>
 		<languageKey index="rm" type="array">
 			<label index="paging.to">fin</label>
 			<label index="paging.from">da total</label>
+			
+			<label index="paging.tostart">Emprema pagina</label>
+			<label index="paging.previous">Precedenta pagina</label>
+			<label index="paging.next">Proxima pagina</label>
+			<label index="paging.toend">Davosa pagina</label>
+			
 			<label index="back">[anavos...]</label>
 			<label index="more">[dapli...]</label>
 		</languageKey>

@@ -9,7 +9,8 @@ class tx_mcgovcollection_forms extends tslib_pibase {
 	public $extKey = 'mc_govcollection'; // Extension-Key
 	public $scriptRelPath = 'wizard/class.tx_mcgovcollection_forms.php';
 	public $prefixId = 'mc_govcollection_forms';
-	private $av_field_types = array('text', 'select', 'textarea', 'checkbox', 'radio', 'email');
+	private $av_field_types = array('text', 'select', 'textarea', 'checkbox', 'radio', 'email', 'date');
+	private $av_layout_types = array('grouptitle', 'spacer');
 	private $formconfig;
 	
 	function __construct($table, $uid, $field, $url) {
@@ -28,6 +29,9 @@ class tx_mcgovcollection_forms extends tslib_pibase {
 		$this->subparts['formfield'] = t3lib_parsehtml::getSubpart($this->template, '###FORM_FIELD###');
 		foreach($this->av_field_types as $type) {
 			$this->subparts['field'][$type] = t3lib_parsehtml::getSubpart($this->template, '###'.strtoupper($type).'_FIELD###');
+		}
+		foreach($this->av_layout_types as $type) {
+			$this->subparts['field'][$type] = t3lib_parsehtml::getSubpart($this->template, '###'.strtoupper($type).'_FIELD###');
 		}		
 		
 		$tempcss = '<link rel="stylesheet" type="text/css" href="'.t3lib_extMgm::siteRelPath($this->extKey).'wizard/template/format.css" media="all" />';
@@ -35,6 +39,8 @@ class tx_mcgovcollection_forms extends tslib_pibase {
 
 		$tempjs = '<script type="text/javascript" src="'.t3lib_extMgm::siteRelPath($this->extKey).'lib/jquery-1.4.3.js"></script>';
 		$tempjs .= '<script type="text/javascript" src="'.t3lib_extMgm::siteRelPath($this->extKey).'lib/jquery.validate.js"></script>';
+		$tempjs .= '<script type="text/javascript" src="'.t3lib_extMgm::siteRelPath($this->extKey).'lib/messages_de.js"></script>';
+		$tempjs .= '<script type="text/javascript" src="'.t3lib_extMgm::siteRelPath($this->extKey).'lib/methods_de.js"></script>';
 		$GLOBALS['TSFE']->additionalHeaderData[$this->prefixId] .= $tempjs;
 		
 		// Get the Config for the Form
@@ -99,9 +105,8 @@ class tx_mcgovcollection_forms extends tslib_pibase {
 			
 			switch($field['type']) {
 				case 'text': 
-					$ffma['###FIELD_SPEZ###'] = '<input type="text" name="###NAME###" value="###VALUE###" />';
-					break;
 				case 'email':
+				case 'date':
 					$ffma['###FIELD_SPEZ###'] = '<input type="text" name="###NAME###" value="###VALUE###" />';
 					break;
 				case 'select':
@@ -148,8 +153,12 @@ class tx_mcgovcollection_forms extends tslib_pibase {
 			if(isset($this->piVars['form'][$this->row['uid']][$id])) {
 				$ffma['###VALUE###'] = $this->piVars['form'][$this->row['uid']][$id];
 			}
-			
-			$ma['###FORM###'] .= t3lib_parsehtml::substituteMarkerArray($this->subparts['formfield'], $ffma);
+
+			if(strlen($this->subparts['field'][$field['type']]) > 0) {
+				$ma['###FORM###'] .= t3lib_parsehtml::substituteMarkerArray($this->subparts['field'][$field['type']], $ffma);
+			} else {
+				$ma['###FORM###'] .= t3lib_parsehtml::substituteMarkerArray($this->subparts['formfield'], $ffma);
+			}
 		}
 		
 		$this->content = t3lib_parsehtml::substituteMarkerArray($this->subparts['form'], $ma);
@@ -162,6 +171,9 @@ class tx_mcgovcollection_forms extends tslib_pibase {
 			$fieldrules = array();
 			
 			switch($field['type']) {
+				case 'date':
+					$fieldrules[] = 'date';
+					break;
 				case 'email':
 					$fieldrules[] = 'email';
 					break;
@@ -185,14 +197,20 @@ class tx_mcgovcollection_forms extends tslib_pibase {
 		$tempjs = '<script type="text/javascript">$(document).ready(function(){
 					    $("#mcrenderforms_form").validate({					    	rules: {';
 		foreach($validationrules['rules'] as $name => $rule) {
-			$tempjs .= '"'.$name.'":"'.implode(',',$rule).'",';
+			$tempjs .= '"'.$name.'": {'.implode(':true,',$rule).':true},';
 		}					    	
 		$tempjs .=     	'},
 					errorClass : "mcrenderforms_field_error",
 					validClass : "mcrenderforms_field_valid",
 					messages: {';
 		foreach($validationrules['message'] as $name => $message) {
-			$tempjs .= '"'.$name.'":"'.$message.'",';
+			if(strlen($message)>0) {
+				$tempjs .= '"'.$name.'": {';
+				foreach($validationrules['rules'][$name] as $rule) {
+					$tempjs .= $rule.':"'.$message.'",';
+				}
+				$tempjs .= '},';
+			}
 		}
 		$tempjs .= '}
 					    });

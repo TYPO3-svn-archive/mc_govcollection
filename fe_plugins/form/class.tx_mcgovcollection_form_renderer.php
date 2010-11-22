@@ -53,8 +53,10 @@ class tx_mcgovcollection_form_renderer extends tslib_pibase {
 		// Labels durch Werte aus der Locallang.xml-Datei ersetzen
 		$this->template = preg_replace_callback("/#LLL#(.*?)#LLL#/", array($this, 'translation_callback'), $this->template);
 		
-		$this->subparts['overview']['cont'] = $this->cObj->getSubpart($this->template, '###OVERVIEW_CONT###');
+		$this->subparts['start'] = $this->cObj->getSubpart($this->template, '###START###');
 		$this->subparts['overview']['row'] = $this->cObj->getSubpart($this->template, '###OVERVIEW_ROW###');
+		$this->subparts['overview']['group'] = $this->cObj->getSubpart($this->template, '###GROUP_OVERVIEW###');
+		$this->subparts['overview']['area'] = $this->cObj->getSubpart($this->template, '###AREA_OVERVIEW###');
 		
 		$this->subparts['confirm'] = $this->cObj->getSubpart($this->template, '###CONFIRM_VIEW###');
 		$this->subparts['datarow'] = $this->cObj->getSubpart($this->template, '###CONFIRM_DATA_ROW###');
@@ -67,47 +69,92 @@ class tx_mcgovcollection_form_renderer extends tslib_pibase {
 		$this->subparts['img']['link'] = $this->cObj->getSubpart($this->template, '###LINK_IMG###');
 		$this->subparts['img']['form'] = $this->cObj->getSubpart($this->template, '###FORM_IMG###');
 		$this->subparts['img']['info'] = $this->cObj->getSubpart($this->template, '###INFO_IMG###');
+		
+		$tempjs = '<script type="text/javascript" src="'.t3lib_extMgm::siteRelPath($this->extKey).'lib/jquery-1.4.3.js"></script>';
+		$GLOBALS['TSFE']->additionalHeaderData[$this->prefixId] .= $tempjs;
 	}
 	
 	public function translation_callback($matches) {
 		return $this->pi_getLL($matches[1], 'no translation found');
 	}
 	
-	public function renderOverview($rows) {
+	public function renderStart($areas) {
 		$content = '';
 		
-		$content .= $this->subparts['overview']['cont'];
-		
-		foreach($rows as $row) {
-			$ma['###TITLE###'] = $row['title'];
-			$ma['###INFO###'] = $this->pi_linkTP($this->subparts['img']['info'], array($this->prefixId.'[offerId]' => $row['uid'], $this->prefixId.'[action]' => 'info'), 1);
-			$ma['###PRICE###'] = ($row['price']==0?'-':$row['price']);
-			if(strcmp($row['type'],'formular')==0) {
-				$ma['###FORM###'] = $this->pi_linkTP($this->subparts['img']['form'], array($this->prefixId.'[offerId]' => $row['uid'], $this->prefixId.'[action]' => 'form'), 1);
-				$ma['###LINK###'] = '&nbsp;';
-			} else {	
-				$ma['###FORM###'] = '&nbsp;';
-				$ma['###LINK###'] = strlen($row['link'])>0?$this->cObj->getTypoLink($this->subparts['img']['link'], $row['link'], '', '_blank'):'&nbsp;';
+		foreach($areas as $area) {
+			$ma['###TITLE###'] = $area->getTitle();
+			$ma['###MORE###'] = $this->pi_linkTP($this->pi_getLL('more'), array($this->prefixId.'[uid]' => $area->getUid(), $this->prefixId.'[action]' => 'area'), 1);
+			$ma['###DESCRIPTION###'] = strlen($area->getDescription())>0?$this->pi_RTEcssText($area->getDescription()):'&nbsp;';
+			
+			$groups = array();
+			foreach($area->getGroups() as $group) {
+				if(count($group->getServices()) > 0) {
+					$groups[] .= $this->pi_linkTP($group->getTitle(), array($this->prefixId.'[uid]' => $group->getUid(), $this->prefixId.'[action]' => 'group'), 1);
+				}				
 			}
-		
-			$content .= $this->cObj->substituteMarkerArray($this->subparts['overview']['row'], $ma);
+			$ma['###GROUPS###'] = implode(' | ', $groups);
+			
+			if(strlen($ma['###GROUPS###'])>0) {
+				$content .= $this->cObj->substituteMarkerArray($this->subparts['start'], $ma);
+			}
 		}
 		
 		return $content;
 	}
 	
+	public function renderArea($area, $actgroupuid) {
+		$content = '';
+
+		$ma['###AREA_TITLE###'] = $area->getTitle();
+		$ma['###BACK###'] = $this->pi_linkTP($this->pi_getLL('backtoOverview'));
+		$ma['###GROUPS###'] = '';
+		 
+		foreach($area->getGroups() as $group) {
+			$mag['###TITLE###'] = $area->getTitle().' - '.$group->getTitle();
+			$mag['###GROUPUID###'] = $group->getUid();
+			if($actgroupuid == $group->getUid()) {
+				$mag['###DISPLAY###'] = 'inline';
+			} else {
+				$mag['###DISPLAY###'] = 'none';
+			}
+			$mag['###SERVICES###'] = '';
+			
+			foreach($group->getServices() as $service) {
+				$mas['###TITLE###'] = $service->getTitle();
+				$mas['###INFO###'] = '&nbsp;';
+				if(strlen($service->getDescription())>0) {
+					$mas['###INFO###'] = $this->pi_linkTP($this->subparts['img']['info'], array($this->prefixId.'[offerId]' => $service->getUid(), $this->prefixId.'[action]' => 'info'), 1);
+				} 
+				if(strcmp($service->getType(),'formular')==0) {
+					$mas['###FORM###'] = $this->pi_linkTP($this->subparts['img']['form'], array($this->prefixId.'[offerId]' => $service->getUid(), $this->prefixId.'[action]' => 'form'), 1);
+					$mas['###LINK###'] = '&nbsp;';
+				} else {	
+					$mas['###FORM###'] = '&nbsp;';
+					$mas['###LINK###'] = strlen($service->getLink())>0?$this->cObj->getTypoLink($this->subparts['img']['link'], $service->getLink(), '', '_blank'):'&nbsp;';
+				}
+			
+				$mag['###SERVICES###'] .= $this->cObj->substituteMarkerArray($this->subparts['overview']['row'], $mas);
+			}
+			if(count($group->getServices()) > 0) {
+				$ma['###GROUPS###'] .= $this->cObj->substituteMarkerArray($this->subparts['overview']['group'], $mag);
+			}
+		}
+
+		return $this->cObj->substituteMarkerArray($this->subparts['overview']['area'], $ma);
+	}
+	
 	public function renderForm($row, $renderedForm) {
-		$ma['###TITLE###'] = $row['title'];
-		$ma['###PRICE###'] = $row['price'];
+		$ma['###TITLE###'] = $row->getTitle();
+		$ma['###PRICE###'] = $row->getPrice();
 		$ma['###FORM###'] = $renderedForm;
-		$ma['###BACK###'] = $this->pi_linkToPage('[zurück...]', $GLOBALS['TSFE']->id);
+		$ma['###BACK###'] = $this->pi_linkTP($this->pi_getLL('back'), array($this->prefixId.'[uid]' => $row->getGroupUid(), $this->prefixId.'[action]' => 'group'), 1);
 		
 		return $this->cObj->substituteMarkerArray($this->subparts['form'], $ma);
 	}
 	
 	public function renderMail($row, $data) {
-		$ma['###TITLE###'] = $row['title'];
-		$ma['###PRICE###'] = $row['price'];
+		$ma['###TITLE###'] = $row->getTitle();
+		$ma['###PRICE###'] = $row->getPrice();
 		
 		$ma['###DATA###'] = '';
 		foreach($data as $label => $value) {
@@ -120,10 +167,10 @@ class tx_mcgovcollection_form_renderer extends tslib_pibase {
 		return $this->cObj->substituteMarkerArray($this->subparts['mail'], $ma);
 	}
 	
-	public function renderConfirm($row, $data) {
-		$ma['###TITLE###'] = $row['title'];
-		$ma['###PRICE###'] = $row['price'];
-		$ma['###BACK###'] = $this->pi_linkToPage($this->pi_getLL('back'), $GLOBALS['TSFE']->id);
+	public function renderConfirm($service, $data) {
+		$ma['###TITLE###'] = $service->getTitle();
+		$ma['###PRICE###'] = $service->getPrice();
+		$ma['###BACK###'] = $this->pi_linkTP($service->getTitle(), array($this->prefixId.'[uid]' => $service->getGroupUid(), $this->prefixId.'[action]' => 'group'), 1);
 		
 		$ma['###DATA###'] = '';
 		foreach($data as $label => $value) {
@@ -136,23 +183,23 @@ class tx_mcgovcollection_form_renderer extends tslib_pibase {
 		return $this->cObj->substituteMarkerArray($this->subparts['confirm'], $ma);
 	}
 	
-	public function renderSingle($row) {
+	public function renderSingle($service) {
 		$ma = array();
-		$ma['###TITLE###'] = $row['title'];
-		$ma['###PRICE###'] = $row['price'];
+		$ma['###TITLE###'] = $service->getTitle();
+		$ma['###PRICE###'] = $service->getPrice();
+		$ma['###BACK###'] = $this->pi_linkTP($this->pi_getLL('back'), array($this->prefixId.'[uid]' => $service->getGroupUid(), $this->prefixId.'[action]' => 'group'), 1);
 		
 		//Kontaktinformationen
-		if(strcmp($row['type'],'formular')==0) {
-			$ma['###FORM###'] = $this->pi_linkTP($this->subparts['img']['form'], array($this->prefixId.'[offerId]' => $row['uid'], $this->prefixId.'[action]' => 'form'), 1);
+		if(strcmp($service->getType(),'formular')==0) {
+			$ma['###FORM###'] = $this->pi_linkTP($this->subparts['img']['form'], array($this->prefixId.'[offerId]' => $service->getUid(), $this->prefixId.'[action]' => 'form'), 1);
 			$ma['###LINK###'] = '<span style="padding-left: 12px">-</span>';
 		} else {	
 			$ma['###FORM###'] = '<span style="padding-left: 12px">-</span>';
-			$ma['###LINK###'] = strlen($row['link'])>0?$this->cObj->getTypoLink($this->subparts['img']['link'], $row['link'], '', '_blank'):'&nbsp;';
+			$ma['###LINK###'] = strlen($service->getLink())>0?$this->cObj->getTypoLink($this->subparts['img']['link'], $service->getLink(), '', '_blank'):'&nbsp;';
 		}
 		
 		// Beschreibung
-		$ma['###DESCRIPTION###'] = strlen($row['description'])>0?$this->pi_RTEcssText($row['description']):'&nbsp;';
-		$ma['###BACK###'] = $this->pi_linkToPage($this->pi_getLL('back'), $GLOBALS['TSFE']->id);
+		$ma['###DESCRIPTION###'] = strlen($service->getDescription())>0?$this->pi_RTEcssText($service->getDescription()):'&nbsp;';
 		
 		return $this->cObj->substituteMarkerArray($this->subparts['single'], $ma);
 	}

@@ -8,8 +8,13 @@
 		<languageKey index="default" type="array">
 			<label index="overview.label.name">Name</label>
 			<label index="overview.label.email">E-Mail</label>
+			<label index="overview.label.info">Info</label>
 			<label index="overview.label.web">Webseite</label>
 			<label index="overview.label.contact">Contact</label>
+			
+			<label index="imgalt.clicktoemail">Click to write E-Mail</label>
+			<label index="imgalt.clicktoinfo">Click to get more Infos</label>
+			
 			<label index="label.tel">Tel</label>
 			<label index="label.fax">Fax</label>
 			<label index="back">[back...]</label>
@@ -18,8 +23,13 @@
 		<languageKey index="de" type="array">
 			<label index="overview.label.name">Name</label>
 			<label index="overview.label.email">E-Mail</label>
+			<label index="overview.label.info">Info</label>
 			<label index="overview.label.web">Webseite</label>
 			<label index="overview.label.contact">Kontakt</label>
+			
+			<label index="imgalt.clicktoemail">Klicken um E-Mail zu schreiben</label>
+			<label index="imgalt.clicktoinfo">Klicken um mehr Infos zu erhalten</label>
+			
 			<label index="label.tel">Tel</label>
 			<label index="label.fax">Fax</label>
 			<label index="back">[zurück...]</label>
@@ -28,8 +38,13 @@
 		<languageKey index="rm" type="array">
 			<label index="overview.label.name">Num</label>
 			<label index="overview.label.email">E-Mail</label>
+			<label index="overview.label.info">Info</label>
 			<label index="overview.label.web">Pagina web</label>
 			<label index="overview.label.contact">Contact</label>
+			
+			<label index="imgalt.clicktoemail">Cliccar per scriver in e-Mail</label>
+			<label index="imgalt.clicktoinfo">Cliccar per survegnir dapli infurmaziuns</label>
+			
 			<label index="label.tel">Tel</label>
 			<label index="label.fax">Fax</label>
 			<label index="back">[anavos...]</label>

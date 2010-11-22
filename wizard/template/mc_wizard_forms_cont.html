@@ -23,6 +23,12 @@
 	</div>
 	###FIELDTYPES###	
 </div>
+<div class="bgColor2" style="clear:both; float: left; margin-top:10px; padding: 10px;">
+	<div style="clear:both; margin-bottom: 10px; font-weight: 800">
+		#LLL#layoutfield.title#LLL#
+	</div>
+	###LAYOUTTYPES###	
+</div>
 <!-- ###NEW_FIELD### end -->
 
 <!-- ###NEW_FIELD_ROW### begin -->
@@ -30,13 +36,13 @@
 	<div style="float: left; width: 60px; text-align: center;">
 		<img src="images/###TYPE###.png" />
 	</div>
-	<div style="float: left;">###LABEL###</div>
+	<div style="float: left; width: 100px;">###LABEL###</div>
 </div>
 <!-- ###NEW_FIELD_ROW### end -->
 
 <!-- ###FIELD_CONT### begin -->
 <input type="hidden" name="mc_wizard_forms[field][###ID###][type]" value="###TYPE###" />
-<div class="divider" style="clear: both; float: left; margin: 10px; padding: 5px; width: 100%;">
+<div class="divider" style="clear: both; float: left; margin: 2px; padding: 2px; width: 100%;">
 	<div style="float: left; margin-right: 20px;">
 		<img src="images/up.png" style="cursor: pointer; margin-bottom: 5px;" onClick="actionItem('up', ###ID###)" /><br />
 		<img src="images/down.png" style="cursor: pointer; margin-bottom: 5px;" onClick="actionItem('down', ###ID###)" /><br />
@@ -128,5 +134,17 @@
 	</div>
 </div>
 <!-- ###EMAIL_FORM### end -->
+
+<!-- ###DATE_FORM### begin -->
+<div style="clear: both; height: 25px;">
+	<div style="float: left; width: 100px;">#LLL#formfield.default#LLL#</div>
+	<div style="float: left;">
+		<input type="text" style="width: 200px;" name="mc_wizard_forms[field][###ID###][default]" value="###DEFAULT###"/>
+	</div>
+</div>
+<!-- ###DATE_FORM### end -->
+
+<!-- ###GROUPTITLE_FORM### begin -->
+<!-- ###GROUPTITLE_FORM### end -->
 </body>
 </html>
